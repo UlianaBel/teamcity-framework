@@ -1,6 +1,7 @@
 package com.example.teamc.api.requests.checked;
 
 import com.example.teamc.api.enums.Endpoint;
+import com.example.teamc.api.generators.TestDataStorage;
 import com.example.teamc.api.models.BaseModel;
 import com.example.teamc.api.requests.CrudInterface;
 import com.example.teamc.api.requests.Request;
@@ -19,10 +20,13 @@ public final class CheckedBase<T extends BaseModel> extends Request implements C
 
     @Override
     public T create(BaseModel model) {
-        return (T) uncheckedBase
+        var createdModal = (T) uncheckedBase
                 .create(model)
                 .then().assertThat().statusCode(HttpStatus.SC_OK)
                 .extract().as(endpoint.getModelClass());
+
+        TestDataStorage.getStorage().addCreatedEntity(endpoint, createdModal);
+        return createdModal;
     }
 
     @Override
