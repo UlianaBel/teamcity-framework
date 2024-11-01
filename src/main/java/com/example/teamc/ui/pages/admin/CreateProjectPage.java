@@ -2,6 +2,7 @@ package com.example.teamc.ui.pages.admin;
 
 import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
+import com.example.teamc.ui.pages.ProjectPage;
 import com.example.teamc.ui.pages.ProjectsPage;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -21,9 +22,10 @@ public class CreateProjectPage extends CreateBasePage {
         return this;
     }
 
-    public void setupProject(String projectName, String buildTypeName) {
+    public ProjectPage setupProject(String projectName, String buildTypeName) {
         projectNameInput.val(projectName);
         buildTypeNameInput.val(buildTypeName);
         submitButton.click();
+        return page(ProjectPage.class);
     }
 }

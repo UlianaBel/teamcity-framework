@@ -3,6 +3,7 @@ package com.example.teamc.ui;
 import com.codeborne.selenide.Condition;
 import com.example.teamc.api.enums.Endpoint;
 import com.example.teamc.api.models.Project;
+import com.example.teamc.ui.pages.BuildsPage;
 import com.example.teamc.ui.pages.ProjectPage;
 import com.example.teamc.ui.pages.ProjectsPage;
 import com.example.teamc.ui.pages.admin.CreateProjectPage;
@@ -38,7 +39,6 @@ public class CreateProjectTest extends BaseUiTest {
                 .getProjects().stream()
                 .anyMatch(project -> project.getName().text().equals(testData.getProject().getName()));
         softy.assertTrue(projectExists);
-
     }
 
     @Test(description = "User should not be able to create project without name", groups = {"Negative"})
