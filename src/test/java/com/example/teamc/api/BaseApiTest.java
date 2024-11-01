@@ -1,4 +1,6 @@
 package com.example.teamc.api;
 
-public class BaseApiTest extends BaseTest{
+import com.example.teamc.BaseTest;
+
+public class BaseApiTest extends BaseTest {
 }
