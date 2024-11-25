@@ -34,6 +34,6 @@ jobs:
         run: echo Approved to production
 
    # Деплой фронтенда и бекенда на прод
-    deploy-prod:
-      needs: manual-prod-approval
-      uses: ./.github/workflows/deploy-prod.yml
+  deploy-prod:
+    needs: manual-prod-approval
+    uses: ./.github/workflows/deploy-prod.yml
