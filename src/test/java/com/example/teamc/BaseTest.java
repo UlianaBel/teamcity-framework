@@ -1,4 +1,4 @@
-package com.example.teamc.api;
+package com.example.teamc;
 
 import com.example.teamc.api.generators.TestDataStorage;
 import com.example.teamc.api.models.TestData;
